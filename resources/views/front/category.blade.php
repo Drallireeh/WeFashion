@@ -2,11 +2,7 @@
 
 @section('content')
 
-@if($category->gender == "male") {{$gender = "homme"}}
-@else {{$gender = "femme"}}
-@endif
-
-<h1>Produits de la gamme pour {{$gender}}</h1>
+<h1>Produits de la gamme pour {{$category->gender == "male" ? "homme" : "femme"}}</h1>
 {{$products->links()}}
 
 <ul class="list-group">
@@ -22,7 +18,7 @@
         @endif
     </li>
     @empty
-    <li>Aucun produit n'est disponible pour la gamme {{$gender}}, veuillez réessayer ultérieurement</li>
+    <li>Aucun produit n'est disponible pour la gamme {{$category->gender == "male" ? "homme" : "femme"}}, veuillez réessayer ultérieurement</li>
     @endforelse
     
 </ul>
