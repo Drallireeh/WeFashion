@@ -24,7 +24,7 @@ class CreateProductsTable extends Migration
                 "M",
                 "S",
                 "XS",
-            ]);
+            ])->default("M");
             $table->boolean('published_state')->default(false);
             $table->boolean('state')->default(false);
             $table->string('reference', 16);
