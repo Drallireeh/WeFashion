@@ -28,7 +28,6 @@ class CreateProductsTable extends Migration
             $table->boolean('published_state')->default(false);
             $table->boolean('state')->default(false);
             $table->string('reference', 16);
-            $table->timestamps();
         });
     }
 
