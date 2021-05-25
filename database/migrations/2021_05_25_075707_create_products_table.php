@@ -15,7 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 5, 100);
+            $table->string('name', 100);
             $table->text('description', 100);
             $table->float('price', 9, 2);
             $table->enum('size', [
@@ -27,7 +27,6 @@ class CreateProductsTable extends Migration
             ])->default("M");
             $table->boolean('published_state')->default(false);
             $table->boolean('state')->default(false);
-            $table->unsignedInteger("category_id");
             $table->string('reference', 16);
         });
     }
