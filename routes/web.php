@@ -13,9 +13,7 @@
 
 Route::get('/', 'FrontController@index');
 
-Route::get('product/{id}', function($id){
-    return App\Product::find($id);
-});
+Route::get('product/{id}', 'FrontController@show')->where(['id' => '[0-9]+']);
 
 Route::get('products', function(){
     return App\Product::all();

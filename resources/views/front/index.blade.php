@@ -11,7 +11,7 @@
             {{$product->price}}
         </div>
         @if(!empty($product->picture))
-        <img src="{{asset('images/'.$product->picture->link)}}" alt="cover product">
+        <img src="{{asset('images/'.$product->picture->link)}}" alt="view of article">
         @endif
     </li>
     @empty
