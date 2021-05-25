@@ -27,6 +27,7 @@ class CreateProductsTable extends Migration
             ])->default("M");
             $table->boolean('published_state')->default(false);
             $table->boolean('state')->default(false);
+            $table->unsignedInteger("category_id");
             $table->string('reference', 16);
         });
     }
