@@ -11,6 +11,24 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'FrontController@index');
+
+Route::get('product/{id}', function($id){
+    return App\Product::find($id);
 });
+
+Route::get('products', function(){
+    return App\Product::all();
+});
+
+// Route::get('/soldes', function () {
+//     return view('welcome');
+// });
+
+// Route::get('/hommes', function () {
+//     return view('welcome');
+// });
+
+// Route::get('/femmes', function () {
+//     return view('welcome');
+// });
