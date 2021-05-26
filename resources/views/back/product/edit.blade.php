@@ -46,14 +46,14 @@
     <div>
         <div>
             <h2>Status</h2>
-            <input type="radio" @if($product->published_state == true) checked @endif name="published_state" value="{{true}}"> Publié<br>
-            <input type="radio" @if($product->published_state == false) checked @endif name="published_state" value="{{false}}"> Non publié<br>
+            <input type="radio" {{$product->published_state == 1 ? 'checked' : ''}}  name="published_state" value="1"> Publié<br>
+            <input type="radio" {{$product->published_state == 0 ? 'checked' : ''}}  name="published_state" value="0"> Non publié<br>
             @if($errors->has('published_state')) <span class="error">{{$errors->first('published_state')}}</span>@endif
         </div>
         <div>
-            <h2>Status</h2>
-            <input type="radio" @if($product->discount == true) checked @endif name="discount" value="{{true}}"> Soldé<br>
-            <input type="radio" @if($product->discount == false) checked @endif name="discount" value="{{false}}"> Non Soldé<br>
+            <h2>Status de l'offre</h2>
+            <input type="radio" @if($product->discount == 1) checked @endif name="discount" value="1"> Soldé<br>
+            <input type="radio" @if($product->discount == 0) checked @endif name="discount" value="0"> Non Soldé<br>
             @if($errors->has('discount')) <span class="error">{{$errors->first('discount')}}</span>@endif
         </div>
         <div class="input-file">

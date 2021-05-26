@@ -105,8 +105,6 @@ class ProductController extends Controller
 
             $link = $request->file('picture')->store('images');
 
-            dd($link);
-
             // mettre à jour la table picture pour le lien vers l'image dans la base de données
             $produit->picture()->create([
                 'link' => $link,

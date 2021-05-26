@@ -28,9 +28,9 @@ class StoreProductRequest extends FormRequest
             'description' => 'required|string',
             'category_id' => 'integer',
             'size' => 'in:XS,S,M,L,XL',
-            'published_status' => 'boolean',
-            'discount' => 'boolean',
-            'price' => 'numeric',
+            'published_state' => 'required|boolean',
+            'discount' => 'required|boolean',
+            'price' => 'required|numeric',
             'picture' => 'image|max:3000',
         ];
     }

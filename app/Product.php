@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = [
-        'name', 'description', 'category_id', 'price', 'reference'
+        'name', 'description', 'category_id', 'price', 'reference', 'published_state', 'discount', 'size'
     ];
 
     // ici le setter va récupérer la value à insérer en BDD
@@ -21,7 +21,7 @@ class Product extends Model
     }
 
     public function setDiscountAttribute($value) {
-        if ($value == true) {
+        if ($value == "1") {
             $this->attributes['discount'] = true;
         } else {
             $this->attributes['discount'] = false;
@@ -29,7 +29,7 @@ class Product extends Model
     }
 
     public function setPublishedStateAttribute($value) {
-        if ($value == true) {
+        if ($value == "1") {
             $this->attributes['published_state'] = true;
         } else {
             $this->attributes['published_state'] = false;

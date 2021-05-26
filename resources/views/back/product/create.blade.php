@@ -7,17 +7,29 @@
             {{ csrf_field() }}
             <div>
                 <div>
-                    <label for="title">Titre :</label> <br>
-                    <input type="text" name="title" value="{{old('title')}}" class="form-control" id="title" placeholder="Titre du livre">
-                    @if($errors->has('title')) <span class="error">{{$errors->first('title')}}</span>@endif
+                    <label for="name">Nom :</label> <br>
+                    <input type="text" name="name" value="{{old('name')}}" class="form-control" id="name" placeholder="Titre du livre">
+                    @if($errors->has('name')) <span class="error">{{$errors->first('name')}}</span>@endif
                 </div>
                 <div>
-                    <label for="price">Description :</label> <br>
+                    <label for="description">Description :</label> <br>
                     <textarea type="text" name="description">{{old('description')}}</textarea>
                     @if($errors->has('description')) <span class="error">{{$errors->first('description')}}</span>@endif
                 </div>
+                <div>
+                    <label for="price">Prix :</label> <br>
+                    <textarea type="text" name="price">{{old("price")}}</textarea>
+                    @if($errors->has('price')) <span class="error">{{$errors->first('price')}}</span>@endif
+                </div>
             </div>
             <div>
+                <label for="category">Catégorie :</label>
+                <select id="category" name="category_id">
+                    <option value="0" {{ is_null(old("category_id")) ? 'selected' : '' }}>Pas de catégorie</option>
+                    @foreach($categories as $id => $gender)
+                    <option {{ $product->category_id==$id? 'selected' : '' }} value="{{$id}}">{{$gender}}</option>
+                    @endforeach
+                </select>
                 <label for="genre">Genre :</label>
                 <select id="genre" name="genre_id">
                     <option value="0" {{ is_null(old('genre_id'))? 'selected' : '' }}>No genre</option>
