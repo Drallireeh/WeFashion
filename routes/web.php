@@ -19,6 +19,8 @@ Route::get('category/{id}', 'FrontController@showCategory')->where(['id' => '[1|
 
 Route::get('discount', 'FrontController@showSales');
 
+Route::resource('admin/product', 'ProductController')->middleware('auth');
+
 // Route::get('/soldes', function () {
 //     return view('welcome');
 // });
@@ -30,3 +32,6 @@ Route::get('discount', 'FrontController@showSales');
 // Route::get('/femmes', function () {
 //     return view('welcome');
 // });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
