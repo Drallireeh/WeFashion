@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Category;
 use App\Product;
 
 use Illuminate\Http\Request;
@@ -14,8 +16,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        // $books = Product::paginate(6); // retourne tous les livres de l'application
-        // return view('back.book.index', ['books' => $books]);
+        $products = Product::paginate(15); // retourne tous les produits de l'application
+        return view('back.product.index', ['products' => $products]);
     }
 
     /**
@@ -58,7 +60,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        $categories = Category::pluck('gender', 'id')->all();
+
+        return view('back.product.edit', ['product' => $product, 'categories' => $categories]);
     }
 
     /**
@@ -81,10 +86,10 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $book = Product::find($id);
+        $product = Product::find($id);
 
-        $book->delete();
+        $product->delete();
 
-        return redirect()->route('book.index')->with('message', 'success delete');
+        return redirect()->route('product.index')->with('message', 'success delete');
     }
 }

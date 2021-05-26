@@ -34,4 +34,8 @@ Route::resource('admin/product', 'ProductController')->middleware('auth');
 // });
 Auth::routes();
 
+Route::middleware(['auth', 'checkElevation'])->group(function () {
+    Route::resource('admin/book', 'ProductController');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
