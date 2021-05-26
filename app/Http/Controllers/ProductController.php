@@ -29,7 +29,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::pluck('gender', 'id')->all();
+
+        return view('back.product.create', ['categories' => $categories]);
     }
 
     /**
@@ -42,18 +44,21 @@ class ProductController extends Controller
     {
         $product = Product::create($request->all()); // associé les fillables
 
+        $category = Category::find($product->category_id);
+
         // image
         $im = $request->file('picture');
         
         // si on associe une image à un product 
         if (!empty($im)) {
             
-            $link = $request->file('picture')->store('images');
-
+            $link = $request->file('picture')->store($category->gender == "male" ? "hommes" : "femmes");
             // mettre à jour la table picture pour le lien vers l'image dans la base de données
             $product->picture()->create([
                 'link' => $link,
             ]);
+
+            $product->save();
         }
 
         return redirect()->route('product.index')->with('message', 'success');

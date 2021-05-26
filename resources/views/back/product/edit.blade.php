@@ -52,8 +52,8 @@
         </div>
         <div>
             <h2>Status de l'offre</h2>
-            <input type="radio" @if($product->discount == 1) checked @endif name="discount" value="1"> Soldé<br>
-            <input type="radio" @if($product->discount == 0) checked @endif name="discount" value="0"> Non Soldé<br>
+            <input type="radio" {{$product->discount == 1 ? 'checked' : ''}} name="discount" value="1"> Soldé<br>
+            <input type="radio" {{$product->discount == 0 ? 'checked' : ''}} name="discount" value="0"> Non Soldé<br>
             @if($errors->has('discount')) <span class="error">{{$errors->first('discount')}}</span>@endif
         </div>
         <div class="input-file">

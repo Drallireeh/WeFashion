@@ -31,7 +31,8 @@ class StoreProductRequest extends FormRequest
             'published_state' => 'required|boolean',
             'discount' => 'required|boolean',
             'price' => 'required|numeric',
-            'picture' => 'image|max:3000',
+            'reference' => 'string|size:16',
+            'picture' => 'image',
         ];
     }
 }

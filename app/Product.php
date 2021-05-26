@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = [
-        'name', 'description', 'category_id', 'price', 'reference', 'published_state', 'discount', 'size'
+        'name', 'description', 'category_id', 'price', 'reference', 'published_state', 'discount', 'size', 
     ];
 
     // ici le setter va récupérer la value à insérer en BDD
