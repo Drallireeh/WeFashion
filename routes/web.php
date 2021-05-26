@@ -17,6 +17,7 @@ Route::get('product/{id}', 'FrontController@show')->where(['id' => '[0-9]+']);
 
 Route::get('category/{id}', 'FrontController@showCategory')->where(['id' => '[1|2]']);
 
+Route::get('discount', 'FrontController@showSales');
 
 // Route::get('/soldes', function () {
 //     return view('welcome');

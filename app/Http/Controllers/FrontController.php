@@ -32,4 +32,11 @@ class FrontController extends Controller
 
         return view('front.category', ['products' => $products, 'category' => $category]);
     }
+
+    public function showSales()
+    {
+        $products = Product::discount()->paginate(6);
+
+        return view('front.discount', ['products' => $products]);
+    }
 }
