@@ -21,21 +21,10 @@ Route::get('discount', 'FrontController@showSales');
 
 Route::resource('admin/product', 'ProductController')->middleware('auth');
 
-// Route::get('/soldes', function () {
-//     return view('welcome');
-// });
-
-// Route::get('/hommes', function () {
-//     return view('welcome');
-// });
-
-// Route::get('/femmes', function () {
-//     return view('welcome');
-// });
 Auth::routes();
 
 Route::middleware(['auth', 'checkElevation'])->group(function () {
-    Route::resource('admin/book', 'ProductController');
+    Route::resource('admin/product', 'ProductController');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

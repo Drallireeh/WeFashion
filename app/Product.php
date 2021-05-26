@@ -20,6 +20,22 @@ class Product extends Model
         }
     }
 
+    public function setDiscountAttribute($value) {
+        if ($value == true) {
+            $this->attributes['discount'] = true;
+        } else {
+            $this->attributes['discount'] = false;
+        }
+    }
+
+    public function setPublishedStateAttribute($value) {
+        if ($value == true) {
+            $this->attributes['published_state'] = true;
+        } else {
+            $this->attributes['published_state'] = false;
+        }
+    }
+
     public function category() {
         return $this->belongsTo(Category::class);
     }

@@ -4,7 +4,7 @@
         <li><a href="/" style="color: white">Accueil</a></li>
     </div>
     @if($isAdmin)
-        <li><a href="{{route('book.index')}}">Dashboard</a></li>
+        <li><a href="{{route('product.index')}}">Dashboard</a></li>
     @endif
     @if(Auth::check())
     <li>
