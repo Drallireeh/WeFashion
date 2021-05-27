@@ -30,7 +30,6 @@ class ProductTableSeeder extends Seeder
             $product->category()->associate($category);
             $product->save(); // il faut sauvegarder l'association pour faire persister en base de données
 
-            // dd();
             $files = Storage::allFiles($category->gender == "male" ? "hommes" : "femmes");
             
             $fileIndex = array_rand($files);
