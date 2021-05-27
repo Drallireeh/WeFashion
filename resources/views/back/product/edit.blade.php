@@ -33,14 +33,13 @@
                 </select>
             </div>
             <div>
-                <label for="size">Taille :</label>
-                <select id="size" name="size">
-                    <option @if($product->size == 'XS') selected @endif value="XS">XS</option>
-                    <option @if($product->size == 'S') selected @endif value="S">S</option>
-                    <option @if($product->size == 'M') selected @endif value="M">M</option>
-                    <option @if($product->size == 'L') selected @endif value="L">L</option>
-                    <option @if($product->size == 'XL') selected @endif value="XL">XL</option>
-                </select>
+                <h3 for="size">Taille :</h3>
+                @foreach ($sizes as $id => $size)
+                <label> {{$size}}
+                    <input type="checkbox" name="sizes[]" value="{{$id}}" id="sizes{{$id}}" @if( is_null($product->sizes) == false and in_array($id, $product->sizes()->pluck('id')->all())) 
+                    checked @endif>
+                </label>
+                @endforeach
             </div>
     </div>
     <div>

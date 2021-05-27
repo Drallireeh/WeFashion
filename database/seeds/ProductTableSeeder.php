@@ -63,6 +63,7 @@ class ProductTableSeeder extends Seeder
                 'link' => $file
             ]);
 
+            // dd(App\Size::pluck('id')->shuffle()->slice(0, rand(1, 5))->all());
             $sizes = App\Size::pluck('id')->shuffle()->slice(0, rand(1, 5))->all();
 
             $product->sizes()->attach($sizes);

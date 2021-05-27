@@ -37,14 +37,19 @@
                 </select>
             </div>
             <div>
-                <label for="size">Taille :</label>
-                <select id="size" name="size" required>
+                <h2>Taille :</h2>
+                {{-- <select id="size" name="size" required>
                     <option @if(old("size") == 'XS') selected @endif value="XS">XS</option>
                     <option @if(old("size") == 'S') selected @endif value="S">S</option>
                     <option @if(old("size") == 'M') selected @endif value="M">M</option>
                     <option @if(old("size") == 'L') selected @endif value="L">L</option>
                     <option @if(old("size") == 'XL') selected @endif value="XL">XL</option>
-                </select>
+                </select> --}}
+                @foreach ($sizes as $id => $size)
+                <label> {{$size}}
+                    <input type="checkbox" name="sizes[]" value="{{$id}}" id="sizes{{$id}}" {{ ( !empty(old('sizes')) and in_array($id, old('sizes')) )? 'checked' : '' }}>
+                </label>
+                @endforeach
             </div>
     </div>
     <div>

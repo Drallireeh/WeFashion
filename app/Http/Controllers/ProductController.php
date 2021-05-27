@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Product;
+use App\Size;
 
 // use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
@@ -30,8 +31,9 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::pluck('gender', 'id')->all();
+        $sizes = Size::pluck('value', 'id')->all();
 
-        return view('back.product.create', ['categories' => $categories]);
+        return view('back.product.create', ['categories' => $categories, 'sizes' => $sizes]);
     }
 
     /**
@@ -43,6 +45,7 @@ class ProductController extends Controller
     public function store(StoreProductRequest $request)
     {
         $product = Product::create($request->all()); // associé les fillables
+        $product->sizes()->attach($request->sizes);
 
         $category = Category::find($product->category_id);
 
@@ -74,8 +77,9 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $categories = Category::pluck('gender', 'id')->all();
+        $sizes = Size::pluck('value', 'id')->all();
 
-        return view('back.product.edit', ['product' => $product, 'categories' => $categories]);
+        return view('back.product.edit', ['product' => $product, 'categories' => $categories, 'sizes' => $sizes]);
     }
 
     /**
@@ -87,20 +91,21 @@ class ProductController extends Controller
      */
     public function update(StoreProductRequest $request, $id)
     {
-        $produit = Product::find($id); // associé les fillables
+        $product = Product::find($id); // associé les fillables
+        $product->sizes()->sync($request->sizes);
 
-        $produit->update($request->all());
+        $product->update($request->all());
         
         // image
         $im = $request->file('picture');
         
-        // si on associe une image à un produit 
+        // si on associe une image à un product 
         if (!empty($im)) {
 
             $link = $request->file('picture')->store('images');
 
             // mettre à jour la table picture pour le lien vers l'image dans la base de données
-            $produit->picture()->create([
+            $product->picture()->create([
                 'link' => $link,
             ]);
             
