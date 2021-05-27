@@ -21,7 +21,7 @@
         @forelse($products as $product)
         <tr>
             <td><a href="{{route('product.edit', $product->id)}}">{{$product->name}}</a></td>
-            <td>{{$product->category->gender}}</td>
+            <td>{{$product->category->gender ?? "Pas de catégorie" }}</td>
             <td>{{$product->price}}</td>
             <td>{{$product->published_state}}</td>
             <td><a href="{{route('product.edit', $product->id)}}">Update</a></td>

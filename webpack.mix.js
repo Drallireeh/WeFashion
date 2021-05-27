@@ -1,4 +1,5 @@
 let mix = require('laravel-mix');
+let fs = require('fs');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,6 +12,9 @@ let mix = require('laravel-mix');
  |
  */
 
+ fs.rmdirSync('public/images/', { recursive: true });
+
 mix.js('resources/assets/js/app.js', 'public/js')
    .js('resources/assets/js/confirm.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+   .sass('resources/assets/sass/app.scss', 'public/css')
+   .copyDirectory('resources/images/', 'public/images');

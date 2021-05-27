@@ -6,7 +6,7 @@
             <li>
                 <a class="logo" href="/">WE FASHION</a>
             </li>
-            <li><a href="/soldes">Solde</a></li>
+            <li><a href="/discount">Soldes</a></li>
             @foreach($categories as $id => $category)
             <li><a href="{{url('category/' . $id)}}">{{$category}}</a></li>
             @endforeach

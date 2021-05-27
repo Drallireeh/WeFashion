@@ -14,11 +14,11 @@ class ProductTableSeeder extends Seeder
     {
         // Création des genres 
         App\Category::create([
-            "gender" => "male"
+            "gender" => "hommes"
         ]);
 
         App\Category::create([
-            "gender" => "female"
+            "gender" => "femmes"
         ]);
 
         // création de 80 produits à partir de la factory
@@ -30,7 +30,7 @@ class ProductTableSeeder extends Seeder
             $product->category()->associate($category);
             $product->save(); // il faut sauvegarder l'association pour faire persister en base de données
 
-            $files = Storage::allFiles($category->gender == "male" ? "hommes" : "femmes");
+            $files = Storage::allFiles($category->gender == "hommes" ? "hommes" : "femmes");
             
             $fileIndex = array_rand($files);
             $file = $files[$fileIndex];

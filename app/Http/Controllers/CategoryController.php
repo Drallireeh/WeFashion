@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreCategoryRequest;
 use Illuminate\Support\Facades\Storage;
@@ -71,12 +72,41 @@ class CategoryController extends Controller
     {
         $category = Category::find($id); // associé les fillables
 
-        // $directories = Storage::directories();
-        // dd($directories[array_search("Homme",$directories,true)]);
+        $this->_renameFile($request, $category);
+        $this->_updateProductImage($request, $category);
 
         $category->update($request->all());
         
         return redirect()->route('category.index')->with('message', 'Modification effectuée avec succès');
+    }
+
+    /**
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @param  Category  $category
+     * @return void
+     */
+    private function _renameFile($request, $category) {
+        $directories = Storage::directories();
+        $directory_name = $directories[array_search($category->gender, $directories, true)];
+
+        if ($directory_name !== "") rename(Storage::disk('local')->getAdapter()->applyPathPrefix($directory_name), "images/".$request->gender);
+    }
+
+    /**
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @param  Category  $category
+     * @return void
+     */
+    private function _updateProductImage($request, $category) {
+        $products = Product::where('category_id', $category->id)->get();
+
+        $products->each(function ($item, $key) use($request, $category) {
+            $str = str_replace($category->gender, $request->gender, $item->picture->link);
+
+            $item->picture->update(['link' => $str]);
+        });
     }
 
     /**
@@ -89,7 +119,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
 
-        Storage::deleteDirectory($category->gender);
+        if (empty(Storage::files($category->gender))) Storage::deleteDirectory($category->gender);
 
         $category->delete();
 

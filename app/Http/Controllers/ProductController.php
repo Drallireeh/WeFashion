@@ -52,7 +52,7 @@ class ProductController extends Controller
         // si on associe une image à un product 
         if (!empty($im)) {
             
-            $link = $request->file('picture')->store($category->gender == "male" ? "hommes" : "femmes");
+            $link = $request->file('picture')->store($category->gender);
             // mettre à jour la table picture pour le lien vers l'image dans la base de données
             $product->picture()->create([
                 'link' => $link,
