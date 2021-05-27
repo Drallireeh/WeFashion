@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreCategoryRequest;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -41,18 +42,9 @@ class CategoryController extends Controller
     {
         $category = Category::create($request->all());
 
-        return redirect()->route('category.index')->with('message', 'success');
-    }
+        Storage::makeDirectory($category->gender);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return redirect()->route('category.index')->with('message', 'success');
     }
 
     /**
@@ -63,7 +55,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+
+        return view('back.category.edit', ['category' => $category]);
     }
 
     /**
@@ -75,7 +69,14 @@ class CategoryController extends Controller
      */
     public function update(StoreCategoryRequest $request, $id)
     {
-        //
+        $category = Category::find($id); // associé les fillables
+
+        // $directories = Storage::directories();
+        // dd($directories[array_search("Homme",$directories,true)]);
+
+        $category->update($request->all());
+        
+        return redirect()->route('category.index')->with('message', 'Modification effectuée avec succès');
     }
 
     /**
@@ -87,6 +88,8 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
+
+        Storage::deleteDirectory($category->gender);
 
         $category->delete();
 
