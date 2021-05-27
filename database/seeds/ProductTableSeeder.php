@@ -21,6 +21,29 @@ class ProductTableSeeder extends Seeder
             "gender" => "femmes"
         ]);
 
+        // Création des genres 
+        App\Size::create([
+            "value" => "XS"
+        ]);
+
+        App\Size::create([
+            "value" => "S"
+        ]);
+
+        // Création des genres 
+        App\Size::create([
+            "value" => "M"
+        ]);
+
+        App\Size::create([
+            "value" => "L"
+        ]);
+
+        // Création des genres 
+        App\Size::create([
+            "value" => "XL"
+        ]);
+
         // création de 80 produits à partir de la factory
         factory(App\Product::class, 80)->create()->each(function ($product) {
             // associons un genre à un produit que nous venons de créer
@@ -28,7 +51,6 @@ class ProductTableSeeder extends Seeder
 
             // pour chaque $product on lui associe un genre en particulier
             $product->category()->associate($category);
-            $product->save(); // il faut sauvegarder l'association pour faire persister en base de données
 
             $files = Storage::allFiles($category->gender == "hommes" ? "hommes" : "femmes");
             
@@ -40,6 +62,12 @@ class ProductTableSeeder extends Seeder
             $product->picture()->create([
                 'link' => $file
             ]);
+
+            $sizes = App\Size::pluck('id')->shuffle()->slice(0, rand(1, 5))->all();
+
+            $product->sizes()->attach($sizes);
+
+            $product->save(); // il faut sauvegarder l'association pour faire persister en base de données
         });
     }
 }

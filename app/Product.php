@@ -44,6 +44,10 @@ class Product extends Model
         return $this->hasOne(Picture::class);
     }
 
+    public function sizes() {
+        return $this->belongsToMany(Size::class);
+    }
+
     public function scopeDiscount($query) {
         return $query->where('discount', true);
     }

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device.width, initial-scale=1">
     <title>Produit</title>
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
+    <link href="{{asset('css/front.css')}}" rel="stylesheet">
 </head>
 
 <body>

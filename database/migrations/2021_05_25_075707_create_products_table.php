@@ -18,13 +18,6 @@ class CreateProductsTable extends Migration
             $table->string('name', 100);
             $table->text('description', 100);
             $table->float('price', 9, 2);
-            $table->enum('size', [
-                "XL",
-                "L",
-                "M",
-                "S",
-                "XS",
-            ])->default("M");
             $table->boolean('published_state')->default(false);
             $table->boolean('discount')->default(false);
             $table->string('reference', 16);
