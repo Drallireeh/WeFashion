@@ -10,11 +10,15 @@ class FrontController extends Controller
 {
     public function __construct()
     {
+        view()->composer('partials.menu', function ($view) {
+            $categories = Category::pluck('gender', 'id')->all();
+            $view->with('categories', $categories);
+        });
     }
 
     public function index()
     {
-        $products = Product::all(); // retourne tous les livres de l'application
+        $products = Product::paginate(6); // retourne tous les livres de l'application
 
         return view('front.index', ['products' => $products]);
     }
