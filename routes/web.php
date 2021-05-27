@@ -19,10 +19,6 @@ Route::get('category/{id}', 'FrontController@showCategory')->where(['id' => '[1|
 
 Route::get('discount', 'FrontController@showSales');
 
-Route::resource('admin/product', 'ProductController')->middleware('auth');
-
-Route::resource('admin/categories', 'CategoryController')->middleware('auth');
-
 Auth::routes();
 
 Route::middleware(['auth', 'checkElevation'])->group(function () {
