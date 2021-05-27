@@ -4,7 +4,7 @@
 <button><a href="{{route('product.create')}}">Ajouter un livre</a></button>
 
 {{$products->links()}}
-@include('back.product.partials.flash')
+@include('back.partials.flash')
 
 <table>
     <thead>

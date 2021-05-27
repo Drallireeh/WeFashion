@@ -21,10 +21,13 @@ Route::get('discount', 'FrontController@showSales');
 
 Route::resource('admin/product', 'ProductController')->middleware('auth');
 
+Route::resource('admin/categories', 'CategoryController')->middleware('auth');
+
 Auth::routes();
 
 Route::middleware(['auth', 'checkElevation'])->group(function () {
     Route::resource('admin/product', 'ProductController');
+    Route::resource('admin/category', 'CategoryController');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
