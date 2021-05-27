@@ -2,6 +2,8 @@
 
 @section('content')
 <h1>Tous les Produits</h1>
+<span>{{count($products)}} résultats</span>
+
 <ul class="list-group">
     @forelse($products as $product)
     <li class="list-group-item">
@@ -17,6 +19,9 @@
     @empty
     <li>Aucun produit n'est disponible, veuillez réessayer ultérieurement</li>
     @endforelse
-    
+
 </ul>
+
+{{$products->links()}}
+
 @endsection

@@ -9,7 +9,7 @@
             <div>
                 <div>
                     <label for="name">Nom :</label> <br>
-                    <input type="text" name="name" value="{{$product->name}}" class="form-control" id="name" placeholder="Titre du livre">
+                    <input type="text" name="name" value="{{$product->name}}" class="form-control" id="name" placeholder="Nom du produit">
                     @if($errors->has('name')) <span class="error">{{$errors->first('name')}}</span>@endif
                 </div>
                 <div>

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<button><a href="{{route('product.create')}}">Ajouter un livre</a></button>
+<button><a href="{{route('product.create')}}">Ajouter un produit</a></button>
 
 {{$products->links()}}
 @include('back.partials.flash')

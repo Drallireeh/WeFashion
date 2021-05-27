@@ -3,7 +3,7 @@
 @section('content')
 
 <h1>Produits de la gamme pour {{$category->gender == "male" ? "homme" : "femme"}}</h1>
-{{$products->links()}}
+    <span>{{count($products)}} résultats</span>
 
 <ul class="list-group">
     @forelse($products as $product)
@@ -22,4 +22,5 @@
     @endforelse
     
 </ul>
+{{$products->links()}}
 @endsection

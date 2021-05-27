@@ -18,7 +18,7 @@ class FrontController extends Controller
 
     public function index()
     {
-        $products = Product::paginate(6); // retourne tous les livres de l'application
+        $products = Product::paginate(6); // retourne les produits de l'application, avec une pagination de 6
 
         return view('front.index', ['products' => $products]);
     }
