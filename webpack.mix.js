@@ -21,4 +21,5 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/show.scss', 'public/css')
    .sass('resources/assets/sass/partials.scss', 'public/css')
    .sass('resources/assets/sass/admin.scss', 'public/css')
+   .sass('resources/assets/sass/admin_edit.scss', 'public/css')
    .copyDirectory('resources/images/', 'public/images');

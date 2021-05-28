@@ -5,5 +5,6 @@
     "/css/show.css": "/css/show.css",
     "/css/partials.css": "/css/partials.css",
     "/css/admin.css": "/css/admin.css",
+    "/css/admin_edit.css": "/css/admin_edit.css",
     "/js/confirm.js": "/js/confirm.js"
 }

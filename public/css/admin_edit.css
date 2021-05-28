@@ -1,0 +1,126 @@
+.admin-ctn form {
+  /* Remove IE arrow */
+  /* Custom Select */
+  /* Arrow */
+  /* Transition */
+}
+
+.admin-ctn form > div {
+  padding-bottom: 10px;
+}
+
+.admin-ctn form .radios-ctn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.admin-ctn form .radios-ctn > label {
+  margin-right: 10px;
+}
+
+.admin-ctn form .radios-ctn > #div-sizes {
+  width: 225px;
+}
+
+.admin-ctn form .radios-ctn > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.admin-ctn form .radios-ctn > div label {
+  font-weight: normal;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.admin-ctn form .radios-ctn > div label > input {
+  margin: 0;
+  margin-left: 3px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.admin-ctn form .radios-ctn > div:not(#div-sizes) {
+  width: 180px;
+}
+
+.admin-ctn form .radios-ctn > div:not(#div-sizes) label > input {
+  margin: 0;
+  margin-right: 3px;
+}
+
+.admin-ctn form select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 0 !important;
+  background: white;
+  background-image: none;
+  font-family: "Raleway", sans-serif;
+}
+
+.admin-ctn form select::-ms-expand {
+  display: none;
+}
+
+.admin-ctn form .select {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  line-height: 3;
+  background: white;
+  overflow: hidden;
+  border-radius: .25em;
+}
+
+.admin-ctn form select {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 0 .5em;
+  color: black;
+  cursor: pointer;
+}
+
+.admin-ctn form .select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #D9CEB2;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: .25s all ease;
+  transition: .25s all ease;
+}
+
+.admin-ctn form .select:hover::after {
+  color: #7A6A53;
+}
+

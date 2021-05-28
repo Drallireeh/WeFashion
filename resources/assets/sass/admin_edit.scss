@@ -1,0 +1,103 @@
+.admin-ctn {
+    form {
+        > div {
+            padding-bottom :10px;
+        }
+
+        .radios-ctn {
+            display: flex;
+
+            > label {
+                margin-right: 10px;
+            }
+
+            > #div-sizes {
+                width: 225px;
+            }
+
+            > div {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+
+                label {
+                    font-weight: normal;
+                    margin: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+
+                    > input {
+                        margin: 0;
+                        margin-left: 3px;
+                        width: 16px;
+                        height: 16px;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            > div:not(#div-sizes) {
+                width: 180px;
+
+                label > input {
+                    margin: 0;
+                    margin-right: 3px;
+                }
+            }
+        }
+
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+            outline: 0;
+            box-shadow: none;
+            border: 0 !important;
+            background: white;
+            background-image: none;
+            font-family: "Raleway", sans-serif;
+        }
+        /* Remove IE arrow */
+        select::-ms-expand {
+            display: none;
+        }
+        /* Custom Select */
+        .select {
+            position: relative; 
+            display: flex;
+            width: 20em;
+            height: 3em;
+            line-height: 3;
+            background: white;
+            overflow: hidden;
+            border-radius: .25em;
+        }
+        select {
+            flex: 1;
+            padding: 0 .5em;
+            color: black;
+            cursor: pointer;
+        }
+        /* Arrow */
+        .select::after {
+            content: '\25BC';
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 0 1em;
+            background: #D9CEB2;
+            cursor: pointer;
+            pointer-events: none;
+            -webkit-transition: .25s all ease;
+            -o-transition: .25s all ease;
+            transition: .25s all ease;
+        }
+        /* Transition */
+        .select:hover::after {
+            color: #7A6A53;
+        }
+    }
+} 

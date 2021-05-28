@@ -62,11 +62,14 @@ class ProductTableSeeder extends Seeder
             $product->picture()->create([
                 'link' => $file
             ]);
-
-            // dd(App\Size::pluck('id')->shuffle()->slice(0, rand(1, 5))->all());
+            
             $sizes = App\Size::pluck('id')->shuffle()->slice(0, rand(1, 5))->all();
-
-            $product->sizes()->attach($sizes);
+            
+            $filter_sizes = array_values(array_sort($sizes, function ($value) {
+                return $value;
+            }));
+            
+            $product->sizes()->attach($filter_sizes);
 
             $product->save(); // il faut sauvegarder l'association pour faire persister en base de données
         });

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-<div style="width: 80%; margin: 0 auto;">
+<div class="admin-ctn">
     <div>
         <h1>Ajouter une catégorie : </h1>
         <form action="{{route('category.store')}}" method="post" enctype="multipart/form-data">
