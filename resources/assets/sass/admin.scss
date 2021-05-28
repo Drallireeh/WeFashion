@@ -1,0 +1,105 @@
+.admin-ctn {
+    width: 100%;
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .btn-add-ctn {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 20px;
+    }
+
+    .btn-primary a {
+        color: white;
+    }
+    
+    .product-admin-ctn {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        
+        .back-titles {
+            display: flex;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            
+            h2 {
+                padding: 0px 5px;
+                margin: 0px;
+                flex: 1;
+                text-align: start;
+                font-size: 25px;
+            }
+        }
+
+        > .lines {
+            display: flex;
+            align-items: center;
+            padding: 10px 0px;
+    
+            .btn {
+                width: 60%;
+            }
+
+            > div {
+                flex: 1;
+                padding: 0px 5px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1080px) {
+        .product-admin-ctn {
+            .back-titles h2 {
+                font-size: 20px;
+            }
+
+            > .lines {
+                .btn {
+                    width: 100%;
+                }
+            }
+        } 
+    }
+
+    @media screen and (max-width: 684px) {
+        .product-admin-ctn {
+            .back-titles {
+                display: none;
+            }
+
+            > .lines {
+                flex-direction: column;
+                border-bottom: 1px solid white;
+
+                > div {
+                    height: 30px;
+                    flex: none;
+                    padding: 0px;
+                    padding-bottom: 10px;
+                }
+
+                .btn-ctn {
+                    height: 35px;
+                    width: 200px;
+                    padding: 0px;
+                    padding-bottom: 5px;
+                    
+                    form {
+                        height: 100%;
+                    }
+
+                    .btn {
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+            }
+        } 
+    }
+}
+

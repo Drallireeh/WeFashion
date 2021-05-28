@@ -10,6 +10,7 @@
     <link href="{{asset('css/index.css')}}" rel="stylesheet">
     <link href="{{asset('css/show.css')}}" rel="stylesheet">
     <link href="{{asset('css/partials.css')}}" rel="stylesheet">
+    <link href="{{asset('css/admin.css')}}" rel="stylesheet">
 </head>
 
 <body>

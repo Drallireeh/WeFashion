@@ -1,53 +1,53 @@
 @extends('layouts.master')
 
 @section('content')
-<button><a href="{{route('product.create')}}">Ajouter un produit</a></button>
+<div class="admin-ctn">
+    <h1>Administration des produits</h1>
 
-{{$products->links()}}
-@include('back.partials.flash')
-
-<table>
-    <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Category</th>
-            <th>Prix</th>
-            <th>Status</th>
-            <th>Update</th>
-            <th>Delete</th>
-        </tr>
-    </thead>
-    <tbody>
+    <div class='btn-add-ctn'>
+        <button class="btn btn-primary add-product"><a href="{{route('product.create')}}">Ajouter un produit</a></button>
+    </div>
+    
+    @include('back.partials.flash')
+    
+    <div class="product-admin-ctn">
+        <div class="back-titles">
+            <h2>Nom</h2>
+            <h2>Catégorie</h2>
+            <h2>Prix</h2>
+            <h2>Status</h2>
+            <h2>Modification</h2>
+            <h2>Suppression</h2>
+        </div>
         @forelse($products as $product)
-        <tr>
-            <td><a href="{{route('product.edit', $product->id)}}">{{$product->name}}</a></td>
-            <td>{{$product->category->gender ?? "Pas de catégorie" }}</td>
-            <td>{{$product->price}}</td>
-            <td>{{$product->published_state}}</td>
-            <td><a href="{{route('product.edit', $product->id)}}">Update</a></td>
-            <td>
-                <form class="delete" method="POST" action="{{route('product.destroy', $product->id)}}">
-                    {{ method_field('DELETE') }}
-                    {{ csrf_field() }}
-                    <input class="btn btn-danger" type="submit" value="delete" >
-                </form>
-            </td>
-        </tr>
-        @empty
-        <tr>Désolée pour l'instant aucun produit n'est publié sur le site</tr>
-        @endforelse
-    </tbody>
-</table>    
+            <div class="lines">
+                <div><a href="{{route('product.edit', $product->id)}}">{{$product->name}}</a></div>
+                <div>{{$product->category->gender ?? "Pas de catégorie" }}</div>
+                <div>{{$product->price}}</div>
+                <div>{{$product->published_state == 0 ? "Non publié" : "Publié"}}</div>
+                <div class="btn-ctn"><button class="btn btn-primary"><a href="{{route('product.edit', $product->id)}}">Modifier</a></button></div>
+                <div class="btn-ctn">
+                    <form class="delete" method="POST" action="{{route('product.destroy', $product->id)}}">
+                        {{ method_field('DELETE') }}
+                        {{ csrf_field() }}
+                        <button class="btn btn-danger" type="submit">Supprimer</button>
+                    </form>
+                </div>
+            </div>
+            @empty
+            <div class="lines">Désolée pour l'instant aucun produit n'est publié sur le site</div>
+            @endforelse
+    </div>
+    
+    <div class="paginate-ctn">
+        {{$products->links()}}
+    </div>
+</div>
+
+
 @endsection
 
 @section('scripts')
     @parent
     <script src="{{asset('js/confirm.js')}}"></script>
 @endsection
-
-<style>
-    tr>th,
-    tr>td {
-        padding: 10px 20px;
-    }
-</style>
