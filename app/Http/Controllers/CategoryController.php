@@ -45,7 +45,7 @@ class CategoryController extends Controller
 
         Storage::makeDirectory($category->gender);
 
-        return redirect()->route('category.index')->with('message', 'success');
+        return redirect()->route('category.index')->with('message', 'La catégorie a été ajouté');
     }
 
     /**

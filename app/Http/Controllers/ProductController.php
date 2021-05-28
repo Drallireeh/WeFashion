@@ -54,7 +54,6 @@ class ProductController extends Controller
         
         // si on associe une image à un product 
         if (!empty($im)) {
-            
             $link = $request->file('picture')->store($category->gender);
             // mettre à jour la table picture pour le lien vers l'image dans la base de données
             $product->picture()->create([
@@ -64,7 +63,7 @@ class ProductController extends Controller
             $product->save();
         }
 
-        return redirect()->route('product.index')->with('message', 'success');
+        return redirect()->route('product.index')->with('message', 'Le produit a été ajouté');
     }
 
     /**
@@ -101,17 +100,15 @@ class ProductController extends Controller
         
         // si on associe une image à un product 
         if (!empty($im)) {
-
             $link = $request->file('picture')->store('images');
 
             // mettre à jour la table picture pour le lien vers l'image dans la base de données
             $product->picture()->create([
                 'link' => $link,
             ]);
-            
         }
 
-        return redirect()->route('product.index')->with('message', 'success');
+        return redirect()->route('product.index')->with('message', 'Le produit a été mis à jour');
     }
 
     /**
@@ -126,6 +123,6 @@ class ProductController extends Controller
 
         $product->delete();
 
-        return redirect()->route('product.index')->with('message', 'success delete');
+        return redirect()->route('product.index')->with('message', 'Le produit a bien été supprimé');
     }
 }
