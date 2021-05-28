@@ -1,5 +1,6 @@
 .admin-ctn {
     width: 100%;
+    min-height: 750px;
 
     * {
         box-sizing: border-box;
@@ -38,6 +39,7 @@
             display: flex;
             align-items: center;
             padding: 10px 0px;
+            height: 65px;
     
             .btn {
                 width: 60%;
@@ -73,6 +75,7 @@
             > .lines {
                 flex-direction: column;
                 border-bottom: 1px solid white;
+                height: auto;
 
                 > div {
                     height: 30px;

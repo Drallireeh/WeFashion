@@ -25,7 +25,7 @@
                 <div>{{$product->category->gender ?? "Pas de catégorie" }}</div>
                 <div>{{$product->price}}</div>
                 <div>{{$product->published_state == 0 ? "Non publié" : "Publié"}}</div>
-                <div class="btn-ctn"><button class="btn btn-primary"><a href="{{route('product.edit', $product->id)}}">Modifier</a></button></div>
+                <div class="btn-ctn"><a class="btn btn-primary" href="{{route('product.edit', $product->id)}}">Modifier</a></div>
                 <div class="btn-ctn">
                     <form class="delete" method="POST" action="{{route('product.destroy', $product->id)}}">
                         {{ method_field('DELETE') }}

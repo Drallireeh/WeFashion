@@ -1,37 +1,43 @@
 @extends('layouts.master')
 
 @section('content')
-<button><a href="{{route('category.create')}}">Ajouter une catégorie</a></button>
+<div class="admin-ctn">
+    <h1>Administration des catégories</h1>
 
-{{$categories->links()}}
-@include('back.partials.flash')
-
-<table>
-    <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Update</th>
-            <th>Delete</th>
-        </tr>
-    </thead>
-    <tbody>
+    <div class='btn-add-ctn'>
+        <button class="btn btn-primary add-product"><a href="{{route('category.create')}}">Ajouter une catégorie</a></button>
+    </div>
+    
+    @include('back.partials.flash')
+    
+    <div class="product-admin-ctn">
+        <div class="back-titles">
+            <h2>Nom</h2>
+            <h2>Modification</h2>
+            <h2>Suppression</h2>
+        </div>
         @forelse($categories as $category)
-        <tr>
-            <td><a href="{{route('category.edit', $category->id)}}">{{$category->gender}}</a></td>
-            <td><a href="{{route('category.edit', $category->id)}}">Update</a></td>
-            <td>
-                <form class="delete" method="POST" action="{{route('category.destroy', $category->id)}}">
-                    {{ method_field('DELETE') }}
-                    {{ csrf_field() }}
-                    <input class="btn btn-danger" type="submit" value="delete" >
-                </form>
-            </td>
-        </tr>
-        @empty
-        <tr>Désolée pour l'instant aucune catégorie n'est disponible</tr>
-        @endforelse
-    </tbody>
-</table>
+            <div class="lines">
+                <div><a href="{{route('category.edit', $category->id)}}">{{$category->gender}}</a></div>
+                <div class="btn-ctn"><a class="btn btn-primary" href="{{route('category.edit', $category->id)}}">Modifier</a></div>
+                <div class="btn-ctn">
+                    <form class="delete" method="POST" action="{{route('category.destroy', $category->id)}}">
+                        {{ method_field('DELETE') }}
+                        {{ csrf_field() }}
+                        <button class="btn btn-danger" type="submit">Supprimer</button>
+                    </form>
+                </div>
+            </div>
+            @empty
+            <div class="lines">Désolée pour l'instant aucune catégorie n'est disponible</div>
+            @endforelse
+    </div>
+    
+    <div class="paginate-ctn">
+        {{$categories->links()}}
+    </div>
+</div>
+
 @endsection
 
 @section('scripts')

@@ -1,5 +1,6 @@
 .admin-ctn {
   width: 100%;
+  min-height: 750px;
 }
 
 .admin-ctn * {
@@ -60,6 +61,7 @@
       -ms-flex-align: center;
           align-items: center;
   padding: 10px 0px;
+  height: 65px;
 }
 
 .admin-ctn .product-admin-ctn > .lines .btn {
@@ -94,6 +96,7 @@
         -ms-flex-direction: column;
             flex-direction: column;
     border-bottom: 1px solid white;
+    height: auto;
   }
 
   .admin-ctn .product-admin-ctn > .lines > div {
