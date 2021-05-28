@@ -1,4 +1,4 @@
-<div class="footer-content">
+<div>
 
     <div>
         <h4>Informations</h4>

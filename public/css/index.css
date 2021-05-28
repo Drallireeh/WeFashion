@@ -84,3 +84,13 @@
   font-size: 16px;
 }
 
+.content .list-group .list-group-item .price .initial-price {
+  text-decoration: line-through;
+  color: grey;
+  padding-right: 5px;
+}
+
+.content .list-group .list-group-item .price .discount-price {
+  color: black;
+}
+

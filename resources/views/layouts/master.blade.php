@@ -7,19 +7,17 @@
     <meta name="viewport" content="width=device.width, initial-scale=1">
     <title>Produit</title>
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
-    <link href="{{asset('css/front.css')}}" rel="stylesheet">
+    <link href="{{asset('css/index.css')}}" rel="stylesheet">
+    <link href="{{asset('css/show.css')}}" rel="stylesheet">
+    <link href="{{asset('css/partials.css')}}" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container">
-        <div class="col-md-12" style="display: flex; background-color: gray; color: white; padding: 20px 40px">
-            @include('partials.menu')
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            @yield('content')
-        </div>
+    <header>
+        @include('partials.menu')
+    </header>
+    <div class="content">
+        @yield('content')
     </div>
     <footer>
         @include('partials.footer')

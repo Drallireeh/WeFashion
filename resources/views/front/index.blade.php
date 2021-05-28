@@ -2,28 +2,28 @@
 
 @section('content')
 <h1>Tous les Produits</h1>
-<span>{{count($products)}} résultats</span>
+<h2>{{count($products)}} résultats</h2>
 
 <div class="list-group">
     @forelse($products as $product)
     <div class="list-group-item">
         <a href="{{url('product', $product->id)}}">{{$product->name}}</a> 
-        <h2></h2>
-        <div>
-            {{$product->price}}
-        </div>
         @if(!empty($product->picture))
         <div class="img-ctn">
-            <img src="{{asset('images/'.$product->picture->link)}}" alt="view of article">
+            <img src="{{asset('images/'.$product->picture->link)}}" alt="photo de l'article">
         </div>
         @endif
+        <p class="price">
+            {{$product->price}} €
+        </p>
     </div>
     @empty
     <div>Aucun produit n'est disponible, veuillez réessayer ultérieurement</div>
     @endforelse
 
 </div>
-
-{{$products->links()}}
+<div class="paginate-ctn">
+    {{$products->links()}}
+</div>
 
 @endsection

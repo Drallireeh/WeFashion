@@ -1,26 +1,29 @@
 @extends('layouts.master')
 
 @section('content')
-
 <h1>Produits de la gamme pour {{$category->gender == "male" ? "homme" : "femme"}}</h1>
-    <span>{{count($products)}} résultats</span>
+<h2>{{count($products)}} résultats</h2>
 
-<ul class="list-group">
+<div class="list-group">
     @forelse($products as $product)
-    <li class="list-group-item">
+    <div class="list-group-item">
         <a href="{{url('product', $product->id)}}">{{$product->name}}</a> 
-        <h2></h2>
-        <div>
-            {{$product->price}}
-        </div>
         @if(!empty($product->picture))
-        <img src="{{asset('images/'.$product->picture->link)}}" alt="view of article">
+        <div class="img-ctn">
+            <img src="{{asset('images/'.$product->picture->link)}}" alt="photo de l'article">
+        </div>
         @endif
-    </li>
+        <p class="price">
+            {{$product->price}} €
+        </p>
+    </div>
     @empty
-    <li>Aucun produit n'est disponible pour la gamme {{$category->gender == "male" ? "homme" : "femme"}}, veuillez réessayer ultérieurement</li>
+    <div>Aucun produit n'est disponible pour la gamme {{$category->gender == "male" ? "homme" : "femme"}}, veuillez réessayer ultérieurement</div>
     @endforelse
-    
-</ul>
-{{$products->links()}}
+
+</div>
+<div class="paginate-ctn">
+    {{$products->links()}}
+</div>
+
 @endsection
