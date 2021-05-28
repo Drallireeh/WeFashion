@@ -29,7 +29,7 @@
                 </div>
             </div>
             @empty
-            <div class="lines">Désolée pour l'instant aucune catégorie n'est disponible</div>
+            <div class="lines no-result">Désolée pour l'instant aucune catégorie n'est disponible</div>
             @endforelse
     </div>
     

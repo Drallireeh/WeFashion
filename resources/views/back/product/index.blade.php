@@ -5,7 +5,7 @@
     <h1>Administration des produits</h1>
 
     <div class='btn-add-ctn'>
-        <button class="btn btn-primary add-product"><a href="{{route('product.create')}}">Ajouter un produit</a></button>
+        <a class="btn btn-primary add-product" href="{{route('product.create')}}">Ajouter un produit</a>
     </div>
     
     @include('back.partials.flash')
@@ -35,7 +35,7 @@
                 </div>
             </div>
             @empty
-            <div class="lines">Désolée pour l'instant aucun produit n'est publié sur le site</div>
+            <div class="lines no-result">Désolée pour l'instant aucun produit n'est publié sur le site</div>
             @endforelse
     </div>
     

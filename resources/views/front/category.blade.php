@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<h1>Produits de la gamme pour {{$category->gender == "male" ? "homme" : "femme"}}</h1>
+<h1>Produits de la gamme {{$category->gender}}</h1>
 <h2>{{count($products)}} résultats</h2>
 
 <div class="list-group">
@@ -18,7 +18,7 @@
         </p>
     </div>
     @empty
-    <div>Aucun produit n'est disponible pour la gamme {{$category->gender == "male" ? "homme" : "femme"}}, veuillez réessayer ultérieurement</div>
+    <div class="no-result">Aucun produit n'est disponible pour la gamme {{$category->gender}}, veuillez réessayer ultérieurement</div>
     @endforelse
 
 </div>

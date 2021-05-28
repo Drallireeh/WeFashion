@@ -18,7 +18,7 @@
         </p>
     </div>
     @empty
-    <div>Aucun produit n'est actuellement en solde.</div>
+    <div class="no-result">Aucun produit n'est actuellement en solde.</div>
     @endforelse
 
 </div>

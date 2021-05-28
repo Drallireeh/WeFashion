@@ -75,7 +75,9 @@
                     <input class="file" type="file" name="picture" >
                     @if($errors->has('picture')) <span class="error bg-warning text-warning">{{$errors->first('picture')}}</span> @endif
                 </div>
-            <button class="btn btn-primary" type="submit">Ajouter un produit</button>
+            <div>
+                <button class="btn btn-primary" type="submit">Ajouter un produit</button>
+            </div>
         </form>
     </div>
 </div>
