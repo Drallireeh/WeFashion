@@ -103,9 +103,11 @@ class CategoryController extends Controller
         $products = Product::where('category_id', $category->id)->get();
 
         $products->each(function ($item, $key) use($request, $category) {
-            $str = str_replace($category->gender, $request->gender, $item->picture->link);
+            $str = $item->picture ? str_replace($category->gender, $request->gender, $item->picture->link) : "";
 
-            $item->picture->update(['link' => $str]);
+            if ($str != "") {
+                $item->picture->update(['link' => $str]);
+            }
         });
     }
 
