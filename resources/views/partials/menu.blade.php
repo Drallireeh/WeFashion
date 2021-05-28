@@ -1,7 +1,6 @@
-<div>
+<nav>
     <ul>
         <div class="left">
-
             @if(Route::is('product.*') == false && Route::is('category.*') == false)
             <li>
                 <a class="logo" href="/">WE FASHION</a>
@@ -40,4 +39,4 @@
             @endif
         </div>
     </ul>
-</div>
+</nav>

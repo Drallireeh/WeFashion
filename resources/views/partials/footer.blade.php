@@ -1,7 +1,7 @@
 <div>
 
     <div>
-        <h4>Informations</h4>
+        <h3>Informations</h3>
         <ul>
             <li><a href="/">Mentions légales</a></li>
             <li><a href="/">Presse</a></li>
@@ -9,7 +9,7 @@
         </ul>
     </div>
     <div>
-        <h4>Service Client</h4>
+        <h3>Service Client</h3>
         <ul>
             <li><a href="/">Contactez-nous</a></li>
             <li><a href="/">Livraison & Retour</a></li>
@@ -17,7 +17,7 @@
         </ul>
     </div>
     <div>
-        <h4>Réseaux sociaux</h4>
+        <h3>Réseaux sociaux</h3>
         <ul>
             <li><a href="/">Facebook</a></li>
             <li><a href="/">Instagram</a></li>
