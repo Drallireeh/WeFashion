@@ -8,20 +8,24 @@
         <div class='product-img-ctn'>
             @if(!empty($product->picture))
             <img src="{{asset('images/'.$product->picture->link)}}" alt="picture of article">
+            @else
+            <img src="{{asset('images/no_image.png')}}" alt="Pas de photo">
             @endif
         </div>
 
         <div class="product-display">
-            <p><span class="product-labels">Description : </span>{{$product->description}}</p>
+            <p><span class="product-labels">Description :</span> {{$product->description}}</p>
             <div class="select-ctn">
+                @if (count($product->sizes) != 0)
                 <label class="product-labels" for="size">Taille :</label>
                 <select id="size" name="size">
-                    @forelse ($product->sizes as $size)
+                    @foreach ($product->sizes as $size)
                     <option value="{{$size->value}}">{{$size->value}}</option>
-                    @empty
-                        Pas de tailles disponibles pour cet article
-                    @endforelse
+                    @endforeach
                 </select>
+                @else
+                <span class="product-labels">Tailles :</span> Pas de tailles disponibles pour cet article
+                @endif
             </div>
             <div>
                 <span class="product-labels">Prix :</span>

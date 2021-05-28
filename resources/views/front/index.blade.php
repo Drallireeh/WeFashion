@@ -12,6 +12,10 @@
         <div class="img-ctn">
             <img src="{{asset('images/'.$product->picture->link)}}" alt="photo de l'article">
         </div>
+        @else
+        <div class="img-ctn">
+            <img src="{{asset('images/no_image.png')}}" alt="Pas de photo">
+        </div>
         @endif
         <p class="price">
             {{$product->price}} €
