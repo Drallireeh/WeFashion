@@ -82,7 +82,7 @@ class CategoryController extends Controller
 
     /**
      * 
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @param  Category  $category
      * @return void
      */
@@ -95,7 +95,7 @@ class CategoryController extends Controller
 
     /**
      * 
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @param  Category  $category
      * @return void
      */

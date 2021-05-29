@@ -5,7 +5,7 @@
     <h1>Administration des produits</h1>
 
     <div class='btn-add-ctn'>
-        <a class="btn btn-primary add-product" href="{{route('product.create')}}">Ajouter un produit</a>
+        <a class="btn btn-success add-product" href="{{route('product.create')}}">Ajouter un produit</a>
     </div>
     
     @include('back.partials.flash')

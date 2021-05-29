@@ -61,7 +61,7 @@
 
 .content .list-group .list-group-item a {
   font-weight: bold;
-  font-size: 24px;
+  font-size: 22px;
   margin-bottom: 10px;
   color: #577fed;
 }
@@ -97,5 +97,21 @@
 
 .content .list-group .list-group-item .price .discount-price {
   color: black;
+}
+
+@media screen and (max-width: 1080px) {
+  .content .list-group .list-group-item {
+    width: calc(50% - 25px);
+  }
+
+  .content .list-group .list-group-item a {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .content .list-group .list-group-item {
+    width: calc(100% - 25px);
+  }
 }
 

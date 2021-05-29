@@ -64,6 +64,10 @@
   height: 65px;
 }
 
+.admin-ctn .product-admin-ctn > .lines form {
+  margin: 0;
+}
+
 .admin-ctn .product-admin-ctn > .lines .btn {
   width: 60%;
 }

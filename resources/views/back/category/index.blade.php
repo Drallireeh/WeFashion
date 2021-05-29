@@ -5,7 +5,7 @@
     <h1>Administration des catégories</h1>
 
     <div class='btn-add-ctn'>
-        <button class="btn btn-primary add-product"><a href="{{route('category.create')}}">Ajouter une catégorie</a></button>
+        <a class="btn btn-success add-product" href="{{route('category.create')}}">Ajouter une catégorie</a>
     </div>
     
     @include('back.partials.flash')
