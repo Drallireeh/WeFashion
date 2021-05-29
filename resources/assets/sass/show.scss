@@ -10,6 +10,7 @@
         display: flex;
         width: 100%;
         margin-bottom: 20px;
+        gap: 16px;
 
         > div {
             width: 50%;
@@ -60,6 +61,24 @@
             button {
                 width: 250px;
                 margin-top: 5px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1080px) {
+        .informations-ctn {
+            flex-direction: column;
+
+            > div {
+                width: 100%;
+            }
+
+            .product-img-ctn {
+                min-height: 450px;
+
+                img {
+                    height: 450px;
+                }
             }
         }
     }
