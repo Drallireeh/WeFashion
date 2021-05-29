@@ -8352,3 +8352,16 @@ body .no-result {
   padding: 50px;
 }
 
+body .alert {
+  border-radius: 10px;
+  padding: 10px;
+}
+
+body .success {
+  background-color: green;
+}
+
+body .error {
+  background-color: red;
+}
+

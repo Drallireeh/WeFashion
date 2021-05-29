@@ -3,6 +3,7 @@
 <div class="admin-ctn">
     <div>
         <h1>Ajouter une catégorie : </h1>
+        @include('back.partials.flash')
         <form action="{{route('category.store')}}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div>

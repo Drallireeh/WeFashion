@@ -64,7 +64,7 @@ class ProductController extends Controller
             $product->save();
         }
 
-        return redirect()->route('product.index')->with('message', 'Le produit a été ajouté');
+        return redirect()->route('product.index')->with('success', 'Le produit a été ajouté');
     }
 
     /**
@@ -113,7 +113,7 @@ class ProductController extends Controller
             ]);
         }
 
-        return redirect()->route('product.index')->with('message', 'Le produit a été mis à jour');
+        return redirect()->route('product.index')->with('success', 'Le produit a été mis à jour');
     }
 
     /**
@@ -128,6 +128,6 @@ class ProductController extends Controller
 
         $product->delete();
 
-        return redirect()->route('product.index')->with('message', 'Le produit a bien été supprimé');
+        return redirect()->route('product.index')->with('success', 'Le produit a bien été supprimé');
     }
 }

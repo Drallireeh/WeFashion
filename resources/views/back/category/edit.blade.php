@@ -3,6 +3,7 @@
 <div class="admin-ctn">
     <div>
         <h1>Modifier un produit : </h1>
+        @include('back.partials.flash')
         <form action="{{route('category.update', $category->id)}}" method="post" enctype="multipart/form-data">
             {{method_field('PUT')}}
             {{ csrf_field() }}

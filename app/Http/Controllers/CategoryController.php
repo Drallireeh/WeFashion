@@ -41,11 +41,21 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        $category = Category::create($request->all());
+        $categories = Category::pluck('gender', 'id')->all();
 
+        // Boucle sur les catégories
+        foreach ($categories as $category) {
+            // Vérifie si la catégorie existe déjà
+            if ($request->gender == $category) {
+                return redirect()->route('category.create')->with('error', 'La catégorie ' . $request->gender . ' existe déjà');
+            };
+        }
+        
+        $category = Category::create($request->all());
+        
         Storage::makeDirectory($category->gender);
 
-        return redirect()->route('category.index')->with('message', 'La catégorie a été ajouté');
+        return redirect()->route('category.index')->with('success', 'La catégorie a été ajouté');
     }
 
     /**
@@ -70,14 +80,24 @@ class CategoryController extends Controller
      */
     public function update(StoreCategoryRequest $request, $id)
     {
-        $category = Category::find($id); // associé les fillables
+        $selectedCategory = Category::find($id); // associé les fillables
 
-        $this->_renameFile($request, $category);
-        $this->_updateProductImage($request, $category);
+        $categories = Category::pluck('gender', 'id')->all();
 
-        $category->update($request->all());
+        // Boucle sur les catégories
+        foreach ($categories as $category) {
+            // Vérifie si la catégorie existe déjà
+            if ($request->gender == $category) {
+                return redirect()->route('category.edit', $selectedCategory->id)->with('error', 'La catégorie ' . $request->gender . ' existe déjà');
+            };
+        }
+
+        $this->_renameFile($request, $selectedCategory);
+        $this->_updateProductImage($request, $selectedCategory);
+
+        $selectedCategory->update($request->all());
         
-        return redirect()->route('category.index')->with('message', 'Modification effectuée avec succès');
+        return redirect()->route('category.index')->with('success', 'Modification effectuée avec succès');
     }
 
     /**
@@ -125,6 +145,6 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        return redirect()->route('category.index')->with('message', 'La suppression a été effectuée avec succès');
+        return redirect()->route('category.index')->with('success', 'La suppression a été effectuée avec succès');
     }
 }

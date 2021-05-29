@@ -19,4 +19,17 @@ body {
         height: 100%;
         padding: 50px;
     }
+
+    .alert {
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .success {
+        background-color: green;
+    }
+
+    .error {
+        background-color: red;
+    }
 }
