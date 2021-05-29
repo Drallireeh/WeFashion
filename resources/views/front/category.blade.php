@@ -6,8 +6,8 @@
 
 <div class="list-group">
     @forelse($products as $product)
-    <div class="list-group-item">
-        <a href="{{url('product', $product->id)}}">{{$product->name}}</a> 
+    <a class="list-group-item" href="{{url('product', $product->id)}}">
+        <h3>{{$product->name}}</h3> 
         @if(!empty($product->picture))
         <div class="img-ctn">
             <img src="{{asset('images/'.$product->picture->link)}}" alt="photo de l'article">
@@ -16,7 +16,7 @@
         <p class="price">
             {{$product->price}} €
         </p>
-    </div>
+    </a>
     @empty
     <div class="no-result">Aucun produit n'est disponible pour la gamme {{$category->gender}}, veuillez réessayer ultérieurement</div>
     @endforelse
