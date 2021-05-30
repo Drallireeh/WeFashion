@@ -10,8 +10,7 @@ class Product extends Model
         'name', 'description', 'category_id', 'price', 'reference', 'published_state', 'discount', 'size', 
     ];
 
-    // ici le setter va récupérer la value à insérer en BDD
-    // nous pourrons alors vérifier sa valeur avant que le modèle n'insère la donnée en BDD
+    // Set la catégorie à null si elle n'a pas de catégorie
     public function setCategoryIdAttribute($value) {
         if ($value == 0) {
             $this->attributes['category_id'] = null;

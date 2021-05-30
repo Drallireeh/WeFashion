@@ -21,7 +21,7 @@ class ProductTableSeeder extends Seeder
             "gender" => "femmes"
         ]);
 
-        // Création des genres 
+        // Création des tailles 
         App\Size::create([
             "value" => "XS"
         ]);
@@ -30,7 +30,6 @@ class ProductTableSeeder extends Seeder
             "value" => "S"
         ]);
 
-        // Création des genres 
         App\Size::create([
             "value" => "M"
         ]);
@@ -39,7 +38,6 @@ class ProductTableSeeder extends Seeder
             "value" => "L"
         ]);
 
-        // Création des genres 
         App\Size::create([
             "value" => "XL"
         ]);
@@ -52,6 +50,7 @@ class ProductTableSeeder extends Seeder
             // pour chaque $product on lui associe un genre en particulier
             $product->category()->associate($category);
 
+            // Récupère une image dans la catégorie qui correspond
             $files = Storage::allFiles($category->gender == "hommes" ? "hommes" : "femmes");
             
             $fileIndex = array_rand($files);
@@ -63,8 +62,10 @@ class ProductTableSeeder extends Seeder
                 'link' => $file
             ]);
             
+            // Récupération de tailles, entre une et cinq possibles
             $sizes = App\Size::pluck('id')->shuffle()->slice(0, rand(1, 5))->all();
             
+            // Tri les tailles dans leur ordre d'id (XS / S / M / L / XL)
             $filter_sizes = array_values(array_sort($sizes, function ($value) {
                 return $value;
             }));

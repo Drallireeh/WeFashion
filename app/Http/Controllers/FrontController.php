@@ -10,6 +10,7 @@ class FrontController extends Controller
 {
     public function __construct()
     {
+        // Gestion des variables dans les partials menu
         view()->composer('partials.menu', function ($view) {
             $categories = Category::pluck('gender', 'id')->all();
             $view->with('categories', $categories);
@@ -32,14 +33,14 @@ class FrontController extends Controller
     public function showCategory(int $id)
     {
         $category = Category::find($id);
-        $products = Category::find($id)->products()->paginate(6);
+        $products = Category::find($id)->products()->paginate(6); // retourne les produits de cette catégorie, avec une pagination de 6
 
         return view('front.category', ['products' => $products, 'category' => $category]);
     }
 
     public function showSales()
     {
-        $products = Product::discount()->paginate(6);
+        $products = Product::discount()->paginate(6); // retourne les produits soldés, avec une pagination de 6
 
         return view('front.discount', ['products' => $products]);
     }

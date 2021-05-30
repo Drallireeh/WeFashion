@@ -19,7 +19,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate(15); // retourne tous les produits de l'application
+        $products = Product::paginate(15); // retourne tous les produits de l'application, pagination de 15
         return view('back.product.index', ['products' => $products]);
     }
 
@@ -44,8 +44,8 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        $product = Product::create($request->all()); // associé les fillables
-        $product->sizes()->attach($request->sizes);
+        $product = Product::create($request->all());
+        $product->sizes()->attach($request->sizes); // Attache les sizes au produit
 
         $category = Category::find($product->category_id);
 
@@ -92,7 +92,7 @@ class ProductController extends Controller
     public function update(StoreProductRequest $request, $id)
     {
         $product = Product::find($id); // associé les fillables
-        $product->sizes()->sync($request->sizes);
+        $product->sizes()->sync($request->sizes); // Synchronisation des tailles du produit
 
         $product->update($request->all());
         
